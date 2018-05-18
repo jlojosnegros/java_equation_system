@@ -22,7 +22,7 @@ public class Expression {
 	
 	public void add(Expression expresion) {
 		for(Term term : expresion.termList){
-			this.add(term.clon());
+			this.add(term);
 		}
 	}
 	
