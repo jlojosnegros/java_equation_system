@@ -1,11 +1,12 @@
 package equationSystem;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 public class ReductionMethod extends SolutionMethod {
 
-	private Set<String> nameSet;
+
 
 	/// el codigo depende de equationSystem pero queremos que deje de depender de el
 	/// sin embargo no podemos hacer que todo deje de compilar asi que lo que hacemos es
@@ -16,8 +17,8 @@ public class ReductionMethod extends SolutionMethod {
 	/// Cuando veamos los demas veremos si ellos lo necesitan y entonces actuaremos en consecuencia.
 	@Override
 	public void resolve() {
-		assert equationSystem.getNameSet().size() == 2;
-		Iterator<String> nameIterator = equationSystem.getNameSet().iterator();
+		assert this.getNameSet().size() == 2;
+		Iterator<String> nameIterator = this.getNameSet().iterator();
 		String firstName = nameIterator.next();	
 		String secondName = nameIterator.next();
 		float value1 = this.getLast(2).getValue(firstName);
@@ -65,7 +66,7 @@ public class ReductionMethod extends SolutionMethod {
 	public void add(Equation equation) {
 		this.equationList.add(equation);
 		for(String name : equation.getNameSet()){
-			this.equationSystem.getNameSet().add(name);
+			this.getNameSet().add(name);
 		}
 	}
 
