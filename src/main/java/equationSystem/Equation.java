@@ -37,9 +37,9 @@ public class Equation {
 		}
 	}
 	
-	public void multiply(float value){
+	public void multiply(float factor){
 		for(Expression expresion : members.values()){
-			expresion.multiply(value);
+			expresion.multiply(factor);
 		}
 	}	
 	

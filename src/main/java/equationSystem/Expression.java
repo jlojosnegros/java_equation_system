@@ -26,10 +26,10 @@ public class Expression {
 		}
 	}
 	
-	public void multiply(float value){
+	public void multiply(float factor){
 		assert !this.empty();
 		for(Term term : termList){
-			term.multiply(value);
+			term.multiply(factor);
 		}
 	}
 	
