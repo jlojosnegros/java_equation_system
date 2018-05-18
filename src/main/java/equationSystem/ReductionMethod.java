@@ -43,7 +43,7 @@ public class ReductionMethod extends SolutionMethod {
 		this.getLast().simplify(Side.RIGHT);;
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(secondName));
-		this.seStolution(secondName, this.getLast());
+		this.setSolution(secondName, this.getLast());
 		this.copyBefore(9);
 		this.getLast().apply(secondName, this.getLast(2).getValue(Side.RIGHT));
 		this.copyBefore();
@@ -54,13 +54,13 @@ public class ReductionMethod extends SolutionMethod {
 		this.getLast().simplify(Side.RIGHT);
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(firstName));
-		this.seStolution(firstName, this.getLast());
+		this.setSolution(firstName, this.getLast());
 	}
 
-	void copyBefore(){
+	private void copyBefore(){
 		this.copyBefore(1);
 	}
-	void copyBefore(int before){
+	private void copyBefore(int before){
 		int index = this.equationList.size() - before;
 		this.add(this.get(index).clon());
 	}
@@ -89,7 +89,7 @@ public class ReductionMethod extends SolutionMethod {
 		return nameSet;
 	}
 
-	void seStolution(String firstName, Equation equation) {
+	private void setSolution(String firstName, Equation equation) {
 		this.solutions.put(firstName, equation);
 	}
 
