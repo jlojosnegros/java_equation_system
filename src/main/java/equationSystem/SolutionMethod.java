@@ -10,7 +10,6 @@ public abstract class SolutionMethod {
 	// todo hasta dentro de un monton de tiempo
 	// Asi que lo que hacemos es poner el miembro que queremos
 	// sin quitar el que habia
-	protected EquationSystem equationSystem;
 
 	protected List<Equation> equationList;
 	protected Set<String> nameSet;
@@ -29,9 +28,6 @@ public abstract class SolutionMethod {
 
 	}
 
-	public void set(EquationSystem equationSystem) {
-		this.equationSystem = equationSystem;
-	}
 
 	public abstract void resolve();
 
