@@ -76,11 +76,11 @@ public class ReductionMethod extends SolutionMethod {
 		}
 	}
 
-	Equation getLast(){
+	private Equation getLast(){
 		return this.getLast(1);
 	}
 
-	Equation getLast(int before){
+	private Equation getLast(int before){
 		int index = this.equationList.size() - before;
 		return this.equationList.get(index);
 	}
