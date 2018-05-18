@@ -33,7 +33,6 @@ public class EquationSystem {
 	
 	public void set(SolutionMethod solutionMethod){
 		this.solutionMethod = solutionMethod;
-		this.solutionMethod.set(this);
 		this.solutionMethod.set(this.equationList);
 	}
 	
