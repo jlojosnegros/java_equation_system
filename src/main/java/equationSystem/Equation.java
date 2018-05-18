@@ -22,7 +22,7 @@ public class Equation {
 	}
 	
 	public void add(Side side, Term term) {
-		this.members.get(side).add(term.clon());		
+		this.members.get(side).add(term);
 	}
 	
 	public void add(Term term){
