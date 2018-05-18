@@ -11,24 +11,14 @@ public class EquationSystem {
 
 	//TODO private
 	List<Equation> equationList;
-	
-	private Set<String> nameSet;
-	
-	private Map<String, Equation> solutions;
-	
 	private SolutionMethod solutionMethod;
 	
 	public EquationSystem(){
 		this.equationList = new ArrayList<Equation>();
-		this.nameSet = new HashSet<String>();
-		this.solutions = new HashMap<String, Equation>();
 	}
 	
 	public void add(Equation equation) {
 		this.equationList.add(equation);
-		for(String name : equation.getNameSet()){
-			this.nameSet.add(name);
-		}
 	}
 	
 	public void set(SolutionMethod solutionMethod){
