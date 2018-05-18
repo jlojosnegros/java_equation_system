@@ -22,11 +22,7 @@ public class Variable extends Term {
 	
 	@Override
 	public boolean hasName(Set<String> nameSet) {
-		for(String name : nameSet){
-			if (this.hasName(name))
-				return true;
-		}
-		return false;
+		return nameSet.contains(this.name);
 	}
 	
 	@Override
