@@ -41,13 +41,6 @@ public class EquationSystem {
 		this.solutionMethod.resolve();
 	}
 
-	public Set<String> getNameSet() {
-		return nameSet;
-	}
-
-	void seStolution(String firstName, Equation equation) {
-		this.solutions.put(firstName, equation);
-	}
 	
 	public float getSolution(String name){
 		return this.solutionMethod.getSolution(name);
