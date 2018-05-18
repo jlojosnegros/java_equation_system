@@ -56,12 +56,12 @@ public class Equation {
 		return members.get(side).getValue();
 	}
 	
-	public void simplify(Side side, String name){
-		members.get(side).simplify(name);
+	public void simplifyInSideVariableWithName(Side side, String name){
+		members.get(side).simplifyVariableWithName(name);
 	}
 	
-	public void simplify(Side side) {
-		members.get(side).simplify();		
+	public void simplifyConstantsInSide(Side side) {
+		members.get(side).simplifyConstants();
 	}
 	
 	public Set<String> getNameSet() {

@@ -120,7 +120,7 @@ public class ExpressionTest {
 	public void simplifyNotRepeatedVariableTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(27,"z").term(27,"x").build();
-		expression.simplify("z");
+		expression.simplifyVariableWithName("z");
 		Expression result = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(27,"x").term(27,"z").build();
 		assertTrue(result.equal(expression));
@@ -130,7 +130,7 @@ public class ExpressionTest {
 	public void simplifyRepeatedVariableTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(27,"z").term(27,"x").build();
-		expression.simplify("x");
+		expression.simplifyVariableWithName("x");
 		Expression result = new ExpressionBuilder()
 								.term(93).term(27,"z").term(15,"x").build();
 		assertTrue(result.equal(expression));
@@ -140,7 +140,7 @@ public class ExpressionTest {
 	public void simplifyNotRepeatedConstantTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(27,"x").build();
-		expression.simplify();
+		expression.simplifyConstants();
 		Expression result = new ExpressionBuilder()
 								.term(-12,"x").term(27,"x").term(93).build();
 		assertTrue(result.equal(expression));
@@ -150,7 +150,7 @@ public class ExpressionTest {
 	public void simplifyRepeatedConstantTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(-23).term(27,"x").build();
-		expression.simplify();
+		expression.simplifyConstants();
 		Expression result = new ExpressionBuilder()
 								.term(-12,"x").term(27,"x").term(70).build();
 		assertTrue(result.equal(expression));
@@ -160,7 +160,7 @@ public class ExpressionTest {
 	public void simplifyNullConstantTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(3).term(-1).term(2,"x").term(-1).term(-1).build();
-		expression.simplify();
+		expression.simplifyConstants();
 		Expression result = new ExpressionBuilder()
 								.term(2,"x").build();
 		assertTrue(result.equal(expression));
@@ -170,7 +170,7 @@ public class ExpressionTest {
 	public void simplifyZeroConstantTest(){
 		Expression expression = new ExpressionBuilder()
 								.term(3).term(-1).term(-1).term(-1).build();
-		expression.simplify();
+		expression.simplifyConstants();
 		Expression result = new ExpressionBuilder()
 								.term(0).build();
 		assertTrue(result.equal(expression));

@@ -33,7 +33,7 @@ public class Expression {
 		}
 	}
 	
-	public void simplify(String name){
+	public void simplifyVariableWithName(String name){
 		assert this.getNameSet().contains(name);
 		Expression expresion = new Expression();
 		float value = 0;
@@ -50,7 +50,7 @@ public class Expression {
 		this.termList = expresion.termList;
 	}
 	
-	public void simplify() {
+	public void simplifyConstants() {
 		assert !this.empty();
 		Set<String> nameSet = this.getNameSet();
 		Expression expresion = new Expression();

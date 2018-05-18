@@ -27,33 +27,48 @@ public class ReductionMethod extends SolutionMethod {
 		Iterator<String> nameIterator = this.getNameSet().iterator();
 		String firstName = nameIterator.next();	
 		String secondName = nameIterator.next();
+
 		float value1 = this.getLast(2).getValue(firstName);
 		float value2 = this.getLast().getValue(firstName);
+
 		this.copyBefore(2);
 		this.getLast().multiply(value2);
+
 		this.copyBefore(2);
 		this.getLast().multiply(-value1);
+
 		this.copyBefore();
 		this.getLast().add(this.getLast(3));
+
 		this.copyBefore();
-		this.getLast().simplify(Side.LEFT, firstName);
+		this.getLast().simplifyInSideVariableWithName(Side.LEFT, firstName);
+
 		this.copyBefore();
-		this.getLast().simplify(Side.LEFT, secondName);
+		this.getLast().simplifyInSideVariableWithName(Side.LEFT, secondName);
+
 		this.copyBefore();
-		this.getLast().simplify(Side.RIGHT);;
+		this.getLast().simplifyConstantsInSide(Side.RIGHT);;
+
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(secondName));
+
 		this.setSolution(secondName, this.getLast());
+
 		this.copyBefore(9);
 		this.getLast().apply(secondName, this.getLast(2).getValue(Side.RIGHT));
+
 		this.copyBefore();
 		this.getLast().add(new Constant(-this.getLast(2).getValue(Side.LEFT)));
+
 		this.copyBefore();
-		this.getLast().simplify(Side.LEFT);
+		this.getLast().simplifyConstantsInSide(Side.LEFT);
+
 		this.copyBefore();
-		this.getLast().simplify(Side.RIGHT);
+		this.getLast().simplifyConstantsInSide(Side.RIGHT);
+
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(firstName));
+
 		this.setSolution(firstName, this.getLast());
 	}
 
