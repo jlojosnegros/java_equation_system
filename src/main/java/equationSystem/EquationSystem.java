@@ -50,7 +50,8 @@ public class EquationSystem {
 	}
 	
 	public float getSolution(String name){
-		return this.solutions.get(name).getValue(Side.RIGHT);
+		return this.solutionMethod.getSolution(name);
+
 	}
 	
 	public boolean equal(EquationSystem equationSystem){

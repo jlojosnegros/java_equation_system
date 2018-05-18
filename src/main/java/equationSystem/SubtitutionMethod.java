@@ -7,4 +7,8 @@ public class SubtitutionMethod extends SolutionMethod {
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	public float getSolution(String name) {
+		return 0;
+	}
 }

@@ -34,4 +34,6 @@ public abstract class SolutionMethod {
 	}
 
 	public abstract void resolve();
+
+	public abstract float getSolution(String name);
 }

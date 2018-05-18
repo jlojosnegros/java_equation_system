@@ -1,12 +1,18 @@
 package equationSystem;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 public class ReductionMethod extends SolutionMethod {
 
+	private Map<String, Equation> solutions;
 
+
+	ReductionMethod() {
+		this.solutions = new HashMap<String, Equation>();
+	}
 
 	/// el codigo depende de equationSystem pero queremos que deje de depender de el
 	/// sin embargo no podemos hacer que todo deje de compilar asi que lo que hacemos es
@@ -37,7 +43,7 @@ public class ReductionMethod extends SolutionMethod {
 		this.getLast().simplify(Side.RIGHT);;
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(secondName));
-		equationSystem.seStolution(secondName, this.getLast());
+		this.seStolution(secondName, this.getLast());
 		this.copyBefore(9);
 		this.getLast().apply(secondName, this.getLast(2).getValue(Side.RIGHT));
 		this.copyBefore();
@@ -48,7 +54,7 @@ public class ReductionMethod extends SolutionMethod {
 		this.getLast().simplify(Side.RIGHT);
 		this.copyBefore();
 		this.getLast().multiply(1/this.getLast(2).getValue(firstName));
-		equationSystem.seStolution(firstName, this.getLast());
+		this.seStolution(firstName, this.getLast());
 	}
 
 	void copyBefore(){
@@ -82,5 +88,13 @@ public class ReductionMethod extends SolutionMethod {
 	private Set<String> getNameSet() {
 		return nameSet;
 	}
-	
+
+	void seStolution(String firstName, Equation equation) {
+		this.solutions.put(firstName, equation);
+	}
+
+	@Override
+	public float getSolution(String name) {
+		return this.solutions.get(name).getValue(Side.RIGHT);
+	}
 }
